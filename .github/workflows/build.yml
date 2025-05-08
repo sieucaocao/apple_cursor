@@ -2,17 +2,17 @@ name: build
 
 on:
   push:
-    paths-ignore:
-      - "**.md"
-      - LICENSE
-      - .github/FUNDING.yml
-    branches: [main, dev]
-  pull_request:
-    paths-ignore:
-      - "**.md"
-      - LICENSE
-      - .github/FUNDING.yml
-    branches: [main]
+    #paths-ignore:
+    #  - "**.md"
+    #  - LICENSE
+    #  - .github/FUNDING.yml
+    #branches: [main, dev]
+  #pull_request:
+    #paths-ignore:
+    # - "**.md"
+    #  - LICENSE
+    #  - .github/FUNDING.yml
+    #branches: [main]
 
 jobs:
   build:

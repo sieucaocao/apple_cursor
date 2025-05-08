@@ -16,7 +16,7 @@ on:
     #branches: [main]
 
 env:
-  BUILD_TOML: configs/win_sm.build.toml
+  BUILD_TOML: configs/win_rg.build.toml
 
 jobs:
   build:
@@ -62,7 +62,7 @@ jobs:
           ctgen --version
 
       - name: Build cursor size
-        run: ctgen $BUILD_TOML -s 16 -p windows -d "bitmaps/macOS" -o "out" -n "macOS" -c "macOS Cursors with size 16"
+        run: ctgen $BUILD_TOML -s 24 -p windows -d "bitmaps/macOS" -o "out" -n "macOS" -c "macOS Cursors with size 24"
 
       - name: Build
         run: yarn build

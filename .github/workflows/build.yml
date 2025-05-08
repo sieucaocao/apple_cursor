@@ -14,7 +14,7 @@ on:
     #  - .github/FUNDING.yml
     #branches: [main]
 env:
-  BUILD_TOML: configs/win_rg.build.toml
+  BUILD_TOML: configs/win_sm.build.toml
 
 jobs:
   build:

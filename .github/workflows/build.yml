@@ -1,4 +1,4 @@
-name: build
+name: build 
 
 on:
   push:
@@ -13,6 +13,8 @@ on:
     #  - LICENSE
     #  - .github/FUNDING.yml
     #branches: [main]
+env:
+  BUILD_TOML: configs/win_rg.build.toml
 
 jobs:
   build:
@@ -21,7 +23,6 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
-
     steps:
       - uses: actions/checkout@v4
 
@@ -56,6 +57,9 @@ jobs:
         run: |
           clickgen --version
           ctgen --version
+
+      - name: Build cursor size
+        run: ctgen $BUILD_TOML -s 16 -p windows -d "bitmaps/macOS" -n "macOS" -c "macOS Cursors with size 16"
 
       - name: Build
         run: yarn build

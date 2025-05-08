@@ -72,5 +72,5 @@ jobs:
       - name: Upload Build Cursor macOS
         uses: actions/upload-artifact@main
         with:
-          name:  macOS-$OS
+          name:  macOS-Windows
           path: ./out

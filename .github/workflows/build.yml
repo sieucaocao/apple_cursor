@@ -1,18 +1,19 @@
 name: build 
 
 on:
-  push:
-    paths-ignore:
-      - "**.md"
-      - LICENSE
-      - .github/FUNDING.yml
-    branches: [main, dev]
-  pull_request:
-    paths-ignore:
-      - "**.md"
-      - LICENSE
-      - .github/FUNDING.yml
-    branches: [main]
+  workflow_dispatch:
+  #push:
+    #paths-ignore:
+      #- "**.md"
+      #- LICENSE
+      #- .github/FUNDING.yml
+    #branches: [main, dev]
+  #pull_request:
+    #paths-ignore:
+      #- "**.md"
+      #- LICENSE
+      #- .github/FUNDING.yml
+    #branches: [main]
 
 env:
   BUILD_TOML: configs/win_sm.build.toml
@@ -23,7 +24,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
+        #python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.12"]
     steps:
       - uses: actions/checkout@v4
 
@@ -60,7 +62,13 @@ jobs:
           ctgen --version
 
       - name: Build cursor size
-        run: ctgen $BUILD_TOML -s 16 -p windows -d "bitmaps/macOS" -n "macOS" -c "macOS Cursors with size 16"
+        run: ctgen build.toml -s 16 -p windows -d "bitmaps/macOS" -o "out" -n "macOS" -c "macOS Cursors with size 16"
 
       - name: Build
         run: yarn build
+     
+      - name: Upload Build Cursor
+        uses: actions/upload-artifact@main
+        with:
+          name: build_cursor
+          path: ./out

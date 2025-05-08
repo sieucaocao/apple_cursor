@@ -10,7 +10,7 @@ platforms = 'windows'
 
 [cursors]
 [cursors.fallback_settings]
-win_sizes = [16]
+win_sizes = [11, 14, 15, 16, 19]
 x_hotspot = 128
 y_hotspot = 128
 win_delay = 1

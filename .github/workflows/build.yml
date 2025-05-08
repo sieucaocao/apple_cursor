@@ -62,7 +62,7 @@ jobs:
           ctgen --version
 
       - name: Build cursor size
-        run: ctgen $BUILD_TOML -s 24 -p windows -d "bitmaps/macOS" -o "out" -n "macOS" -c "macOS Cursors with size 24"
+        run: ctgen $BUILD_TOML -s 22 -p windows -d "bitmaps/macOS" -o "out" -n "macOS" -c "macOS Cursors with size 22"
 
       - name: Build
         run: yarn build

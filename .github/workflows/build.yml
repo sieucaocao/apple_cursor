@@ -18,6 +18,7 @@ on:
 env:
   BUILD_TOML: configs/win_rg.build.toml
   OS: windows
+  SIZE: 32
   
 jobs:
   build:
@@ -63,13 +64,13 @@ jobs:
           ctgen --version
 
       - name: Build cursor size
-        run: ctgen $BUILD_TOML -s 22 -p $OS -d "bitmaps/macOS" -o "out" -n "macOS" -c "macOS Cursors with size 22"
+        run: ctgen $BUILD_TOML -s $SIZE -p $OS -d "bitmaps/macOS" -o "out" -n "macOS" -c "macOS Cursors with size $SIZE"
 
       - name: Build
         run: yarn build
      
-      - name: Upload Build Cursor
+      - name: Upload Build Cursor macOS
         uses: actions/upload-artifact@main
         with:
-          name: build_cursor_$OS
+          name:  macOS-$OS
           path: ./out

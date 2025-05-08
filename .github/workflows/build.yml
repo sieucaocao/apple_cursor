@@ -9,10 +9,11 @@ on:
     branches: [main, dev]
   pull_request:
     paths-ignore:
-     - "**.md"
+      - "**.md"
       - LICENSE
       - .github/FUNDING.yml
     branches: [main]
+
 env:
   BUILD_TOML: configs/win_sm.build.toml
 

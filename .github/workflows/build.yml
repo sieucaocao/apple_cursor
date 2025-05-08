@@ -18,7 +18,7 @@ on:
 env:
   BUILD_TOML: configs/win_rg.build.toml
   OS: windows
-  SIZE: 40
+  SIZE: 36
 jobs:
   build:
     runs-on: ${{ matrix.os }}
